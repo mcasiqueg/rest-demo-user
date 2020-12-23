@@ -1,0 +1,76 @@
+<div class="logo">
+    <a class="simple-text logo-mini">
+        <div class="logo-img">
+            <img src="/assets/img/angular2-logo-white.png" />
+        </div>
+    </a>
+    <a routerLink="/" class="simple-text logo-normal">
+        Mechanical system
+    </a>
+</div>
+
+
+<div class="sidebar-wrapper">
+
+    <div class="user">
+        <div class="photo">
+            <img src="./assets/img/faces/avatar.jpg" />
+        </div>
+        <div class="user-info">
+            <a data-toggle="collapse" href="#collapseExample" class="collapsed">
+                <span>
+                    Tania Andrew
+                    <b class="caret"></b>
+                </span>
+            </a>
+            <div class="collapse" id="collapseExample">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a href="javascript:void(0)" class="nav-link">
+                            <span class="sidebar-mini">MP</span>
+                            <span class="sidebar-normal">My Profile</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)" class="nav-link">
+                            <span class="sidebar-mini">EP</span>
+                            <span class="sidebar-normal">Edit Profile</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)" class="nav-link">
+                            <span class="sidebar-mini">S</span>
+                            <span class="sidebar-normal">Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <ul class="nav">
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <a class="nav-link" routerLink="/users">
+                <i class="material-icons">icon</i>
+                <p>Usuarios</p>
+            </a>
+
+        </li>
+        <li  class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['/vehicles']">
+                <i class="material-icons">icon</i>
+                <p>Vehiculos</p>
+            </a>
+
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+            <a href="http://md-pro-angular.creative-tim.com/documentation/tutorial?ref=md-pro-archive" class="nav-link">
+                <i class="material-icons">school</i>
+                <p>Documentation</p>
+            </a>
+        </li>
+    </ul>
+
+
+
+</div>

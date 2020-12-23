@@ -1,0 +1,19 @@
+ 
+npm install rxjs --save
+npm install -s rxjs-compat
+
+npm i --save ng-chartist chartist
+npm i --save-dev @types/chartist
+
+
+bootstrap
+
+npm install jquery --save
+
+npm install chartist --save
+
+npm install --save @angular/material @angular/animations @angular/cdk
+
+npm install --save hammerjs
+
+npm install rxjs-compat --save

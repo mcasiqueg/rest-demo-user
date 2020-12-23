@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="60">
+    <Properties>
+    	<Property name="log_pattern">[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</Property>
+        <Property name="log-path">C:\Users\_mcasique.CD-ROSAS\iatech_logs</Property>
+    </Properties>
+    <Appenders>
+        <Console name="Console-Appender" target="SYSTEM_OUT">
+            <PatternLayout>
+                <pattern>
+                    ${log_pattern}
+                </pattern>>
+            </PatternLayout>
+        </Console>
+        <File name="SpringBoot-File-Appender" fileName="${log-path}/springboot.log" >
+            <PatternLayout>
+                <pattern>
+                    ${log_pattern}
+                </pattern>
+            </PatternLayout>
+        </File>
+		<RollingFile name="RollingFile-Appender"
+             fileName="${log-path}/user_api.log"
+             filePattern="${archive}/api1.log.%d{yyyy-MM-dd-hh-mm}.gz">
+		    <PatternLayout pattern="${log_pattern}"/>
+		        <Policies>
+		             <TimeBasedTriggeringPolicy/>
+		             <SizeBasedTriggeringPolicy size="30 MB"/>
+		        </Policies>
+		        <DefaultRolloverStrategy max="30"/>
+		</RollingFile>
+		<Socket name="Socket-Appender" host="localhost" port="9500">
+			<JsonLayout properties="true"/>
+		</Socket>
+    </Appenders>
+    <Loggers>
+        <Logger name="org.springframework" level="info" additivity="false">
+            <AppenderRef ref="SpringBoot-File-Appender"/>
+            <AppenderRef ref="Console-Appender"/>
+        </Logger>
+        <Logger name="com.iatech.api.user" level="debug" additivity="false">
+            <AppenderRef ref="RollingFile-Appender"/>
+            <AppenderRef ref="Console-Appender"/>
+            <AppenderRef ref="Socket-Appender"/>
+         </Logger>
+        <Root>
+            <AppenderRef ref="Console-Appender"/>
+        </Root>
+    </Loggers>
+</Configuration>
